@@ -1,0 +1,248 @@
+body {
+    /* background-color: #999; */
+    background-image:
+        linear-gradient(
+            to right,
+            white calc((100% - 950px)/4),
+            #ddd calc((100% - 950px)/2),
+            #e4e4e4 calc((100% - 950px)/2),
+            white calc(9*((100% - 950px)/16)),
+            white calc(100% - 9*((100% - 950px)/16)),
+            #e4e4e4 calc(100% - (100% - 950px)/2),
+            #ddd calc(100% - (100% - 950px)/2),
+            white calc(100% - (100% - 950px)/4)
+        );
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    width: 800px;
+}
+
+.login-area {
+    color: gray;
+    font-size: 13px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.login-greeting {
+    margin-right: 10px;
+}
+
+.login-greeting strong {
+    font-size: 14px;
+}
+
+.login-link {
+    color: gray;
+    text-decoration: none;
+}
+
+.login-link:visited {
+    color: gray;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+.edit-area {
+    color: gray;
+}
+
+.edit-link {
+    color: gray;
+    text-decoration: none;
+}
+
+.edit-link:visited {
+    color: gray;
+}
+
+.edit-link:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.error {
+    color: red;
+}
+
+label {
+  display: block;
+  font-size: 20px;
+}
+
+.comment-label {
+  display: block;
+  font-size: 12px;
+}
+
+label + label {
+    margin-top: 20px;
+}
+
+input[type=text], input[type=password] {
+    font-family: monospace;
+    font-size: 20px;
+    padding: 2px;
+    width: 500px;
+}
+
+textarea {
+  font-family: monospace;
+  font-size: 17px;
+  height: 400px;
+  width: 500px;
+}
+
+.comment-area {
+  font-family: monospace;
+  font-size: 13px;
+  height: 100px;
+  width: 350px;
+}
+
+input[type=submit], input[type=button] {
+  font-size: 24px;
+}
+
+.main-title {
+    color: #222;
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.post + .post {
+    margin-top: 15px;
+}
+
+.post-heading {
+    border-bottom: 3px solid #666;
+    position: relative;
+}
+
+.post-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.post-title:visited {
+    color: #333;
+}
+
+.post-date {
+    bottom: 0;
+    color: #999;
+    /* position: relative; */
+    float: right;
+    right: 0;
+
+}
+
+.post-content {
+    margin-top: 5px;
+}
+
+.age {
+    bottom: 0;
+    color: gray;
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+}
+
+.comment-box {
+    border-bottom: 1px dotted #aaa;
+    padding-bottom: 5px;
+}
+
+.comment-text {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.comment-info {
+    color: #999;
+    font-size: 10px;
+}
+
+.comment-edit-links-area {
+    color: #999;
+}
+
+.comment-edit-link {
+    color: #999;
+    font-size: 11px;
+}
+
+.comment-user, .comment-date, .comment-time {
+    color: #333;
+}
+
+.like-box {
+    display: flex;
+    flex-direction: column;
+    float: right;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    max-width: 75px;
+}
+
+.like-inner-box {
+    align-items: center;
+    border: dotted #333 1px;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: row;
+    margin-right: 3px;
+    margin-top: 7px;
+    padding: 3px;
+}
+
+.like-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.like-img {
+    filter: grayscale(100%);
+    max-height: 30px;
+    padding-right: 3px;
+}
+
+.like-img:hover {
+    transform: scale(1.1);
+}
+
+.like-number {
+    align-self: center;
+    color: #333;
+    font-size: 20px;
+}
+
+.like-text {
+    color: gray;
+    font-size: 10px;
+}
+
+.like-box .error {
+    font-size: 12px;
+    padding-top: 3px;
+    text-align: center;
+}

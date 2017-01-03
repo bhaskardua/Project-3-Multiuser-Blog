@@ -1,0 +1,34 @@
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+<!-- 	<head> -->
+<!-- 		<meta charset="UTF-8"> -->
+<!-- 		<title>Login</title> -->
+<!-- 		<style rel="stylesheet"> -->
+<!-- 			tr td:first-child { -->
+<!-- 				text-align: right; -->
+<!-- 			} -->
+<!-- 			tr td:last-child { -->
+<!-- 				color: red -->
+<!-- 			} -->
+<!-- 		</style> -->
+<!-- 	</head> -->
+<!-- 	<body> -->
+{% extends 'base.html' %}
+{% block content %}
+		<h2>Login</h2>
+        <p>If you are not already registered then <a href="/signup">sign-up here</a>.</p>
+		<form method="post">
+			<table>
+				<tr>
+					<td>Username</td>
+					<td><input type="text" name="username" value="{{username}}"></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="password" value=""></td>
+				</tr>
+			</table>
+            <p class="error">{{error}}</p>
+			<input type="submit" value="Login">
+		</form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for post in posts %}
+    <div class="post">
+        <a class="post-title" href="/{{post.key().id()}}">{{post.subject}}</a>
+        <p class="post-content">{{post.content.replace('\n', '<br>') | safe}}</p>
+        <hr>
+    </div>
+    {% endfor %}
+{% endblock %}

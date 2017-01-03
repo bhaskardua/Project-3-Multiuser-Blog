@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="post-title post-heading">
+        {{post.subject}}
+    </div>
+
+    <div class="like-box">
+        <div class="like-inner-box">
+            <form method="POST">
+                <input type="hidden" name="action" value="like">
+                <input class="like-img" type="image" src="/img/like-icon.png" alt="Like button">
+            </form>
+            <span class="like-info">
+                <span class="like-number"> {{ likes }} </span>
+                <span class="like-text"> Likes </span>
+            </span>
+        </div>
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+    </div>
+
+    <p class="post-content">
+        {{post.content.replace('\n', '<br>') | safe}}
+    </p>
+
+    <br>
+
+    {% if privatepage %}
+        <span class="edit-area">
+            <a class="edit-link" href="/{{ post.key().id() }}/edit">Edit</a> | 
+            <a class="edit-link" href="/{{ post.key().id() }}/delete">Delete</a>
+        </span>
+    {% endif %}
+
+    <span class="post-date">{{post.created.strftime("%b %d, %Y")}}</span>
+
+    <br> <br> <hr>
+
+    <h4>Comments</h4>
+
+    {% for comment in comments %}
+        <div class="comment-box">
+            <p class="comment-info">
+                Posted by <span class="comment-user">{{ comment.user.name }}</span> on
+                <span class="comment-date">{{ comment.created.strftime("%b %d, %Y") }}</span> at <span class="comment-time">{{ comment.created.strftime("%-I:%M:%S %p") }}</span></p>
+            <p class="comment-text">{{ comment.comment.replace('\n', '<br>') | safe }}</p>
+            {% if user and comment.user.key() == user.key() %}
+                <span class="comment-edit-links-area">
+                    <a class="comment-edit-link" href="/{{ comment.post.key().id() }}/{{ comment.key().id() }}/edit">Edit</a> | 
+                    <a class="comment-edit-link" href="/{{ comment.post.key().id() }}/{{ comment.key().id() }}/delete">Delete</a>
+                </span>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    <br>
+
+    {% if loggedIn %}
+        <form method="POST">
+            <label class="comment-label">Add your comment here:</label>
+            <textarea class="comment-area" name="comment"></textarea>
+            <input type="hidden" name="action" value="comment">
+            {% if errorComment %}
+                <div class="error">
+                    {{ errorComment }}
+                </div>
+            {% endif %}
+            <div>
+                <input type="submit">
+            </div>
+        </form>
+    {% else %}
+        <p><a href="/login"><strong>Log in</strong></a> to post your comments here.</p>
+    {% endif %}
+
+{% endblock %}

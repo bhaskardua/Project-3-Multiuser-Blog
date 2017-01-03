@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Are you sure you want to delete the following comment?</h2>
+<br>
+<p>{{ comment.comment.replace('\n', '<br>') | safe }}</p>
+    <form method="POST">
+        <input type="submit", value="Delete">
+        <input type="button", value="Cancel" onclick="location.href='/{{ comment.post.key().id() }}'">
+    </form>
+{% endblock %}
