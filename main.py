@@ -27,6 +27,8 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir),
                                autoescape=True)
 
+# User Helper Functions for Cookie management
+
 secret = "asdhwng.snpvwor^"
 
 
@@ -40,14 +42,9 @@ def check_secure_val(secure_val):
         return val
 
 
-form = """
-<form method="post" action="/testform">
-    <input name="q">
-    <input type="submit">
-</form>
-"""
+# Handler classes
 
-
+# Base class for all other handler classes
 class BlogHandler(webapp2.RequestHandler):
     """docstring for BlogHandler"""
     def write(self, *a, **kw):
@@ -349,7 +346,7 @@ class Delete(BlogHandler):
             self.error(404)
             return
 
-        if self.userLoggedIn() and self.isPostOwner():
+        if self.userLoggedIn() and self.isPostOwner(post):
             post.delete()
             self.redirect('/')
         else:
