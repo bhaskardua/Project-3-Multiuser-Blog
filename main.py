@@ -107,7 +107,9 @@ class BlogPage(BlogHandler):
 
         if not post:
             self.error(404)
-            self.render('404.html')
+            self.render('404.html',
+                        loggedIn=self.userLoggedIn(),
+                        user=self.user)
             return
 
         comments = Comment.all().filter("post =", post).order("created")
@@ -130,7 +132,9 @@ class BlogPage(BlogHandler):
 
         if not post:
             self.error(404)
-            self.render('404.html')
+            self.render('404.html',
+                        loggedIn=self.userLoggedIn(),
+                        user=self.user)
             return
 
         if self.userLoggedIn():
@@ -211,7 +215,9 @@ class Edit(BlogHandler):
 
         if not post:
             self.error(404)
-            self.render('404.html')
+            self.render('404.html',
+                        loggedIn=self.userLoggedIn(),
+                        user=self.user)
             return
 
         if self.userLoggedIn() and self.isPostOwner(post):
@@ -228,7 +234,9 @@ class Edit(BlogHandler):
 
         if not post:
             self.error(404)
-            self.render('404.html')
+            self.render('404.html',
+                        loggedIn=self.userLoggedIn(),
+                        user=self.user)
             return
 
         if self.userLoggedIn() and self.isPostOwner(post):
@@ -261,7 +269,9 @@ class Delete(BlogHandler):
 
         if not post:
             self.error(404)
-            self.render('404.html')
+            self.render('404.html',
+                        loggedIn=self.userLoggedIn(),
+                        user=self.user)
             return
 
         if self.userLoggedIn() and self.isPostOwner(post):
@@ -278,7 +288,9 @@ class Delete(BlogHandler):
 
         if not post:
             self.error(404)
-            self.render('404.html')
+            self.render('404.html',
+                        loggedIn=self.userLoggedIn(),
+                        user=self.user)
             return
 
         if self.userLoggedIn() and self.isPostOwner(post):
@@ -296,7 +308,9 @@ class CommentEdit(BlogHandler):
 
         if not comment:
             self.error(404)
-            self.render('404.html')
+            self.render('404.html',
+                        loggedIn=self.userLoggedIn(),
+                        user=self.user)
             return
 
         if self.userLoggedIn() and comment.user.key() == self.user.key():
@@ -314,7 +328,9 @@ class CommentEdit(BlogHandler):
 
         if not comment:
             self.error(404)
-            self.render('404.html')
+            self.render('404.html',
+                        loggedIn=self.userLoggedIn(),
+                        user=self.user)
             return
 
         if self.userLoggedIn() and comment.user.key() == self.user.key():
@@ -341,7 +357,9 @@ class CommentDelete(BlogHandler):
 
         if not comment:
             self.error(404)
-            self.render('404.html')
+            self.render('404.html',
+                        loggedIn=self.userLoggedIn(),
+                        user=self.user)
             return
 
         if self.userLoggedIn() and comment.user.key() == self.user.key():
@@ -359,7 +377,9 @@ class CommentDelete(BlogHandler):
 
         if not comment:
             self.error(404)
-            self.render('404.html')
+            self.render('404.html',
+                        loggedIn=self.userLoggedIn(),
+                        user=self.user)
             return
 
         if self.userLoggedIn() and comment.user.key() == self.user.key():
